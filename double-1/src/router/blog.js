@@ -7,6 +7,15 @@ const {
 } = require('../controller/blog')
 const { SuccessModel, ErrorModel } = require('../model/resModel')
 
+// 登录验证
+// const loginCheck = (req) => {
+//   if(!req.session.username) {
+//     return Promise.resolve(
+//       new ErrorModel('尚未登录')
+//     )
+//   }
+// }
+
 const handleBlogRouter = (req, res) => {
   const method = req.method
   const id = req.query.id
