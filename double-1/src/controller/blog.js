@@ -30,14 +30,18 @@ const getDetaile = (id) => {
 }
 
 const newBlog = (blogData={}) => {
-  console.log('new blog data', blogData);
+  console.log('new blog data', blogData)
   return {
     id: 3
   }
 }
 
 const updateBlog = (id, blogData={}) => {
-  console.log(id, blogData);
+  console.log(id, blogData)
+  return true
+}
+
+const delBlog = (id) => {
   return true
 }
 
@@ -45,5 +49,6 @@ module.exports = {
   getList,
   getDetaile,
   newBlog,
-  updateBlog
+  updateBlog,
+  delBlog
 }
