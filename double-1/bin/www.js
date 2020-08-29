@@ -5,3 +5,4 @@ const serverHandle = require('../app');
 
 const server = http.createServer(serverHandle)
 server.listen(port);
+console.log(`Your application is running here: http://localhost:${port}`);
