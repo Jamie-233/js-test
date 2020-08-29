@@ -3,7 +3,7 @@ const getList = (author, keyword) => {
     {
       id: 1,
       title: 'Linux 设计与实现',
-      content: '很难',
+      content: '...',
       author: 'Jenkin',
       createTime: 12233344455
     },
@@ -21,8 +21,8 @@ const getDetaile = (id) => {
   return [
     {
       id: 1,
-      title: 'Linux设计与实现',
-      content: '很难',
+      title: 'Linux 设计与实现',
+      content: '...',
       author: 'Jenkin',
       createTime: 12233344455
     }
