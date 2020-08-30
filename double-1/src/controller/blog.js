@@ -10,7 +10,7 @@ const getList = (author, keyword) => {
     {
       id: 2,
       title: 'Node.js',
-      content: '...',
+      content: 'Node.js',
       author: 'Jenkin',
       createTime: 12233344455
     }
