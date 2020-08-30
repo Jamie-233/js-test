@@ -38,7 +38,7 @@ const serverHandle = (req, res) => {
   // 解析 path
   const url = req.url
   req.path = url.split('?')[0]
-  console.log(req.path)
+  console.log('path: ', req.path)
 
   // 解析 query
   req.query = querystring.parse(url.split('?')[1])
@@ -48,11 +48,14 @@ const serverHandle = (req, res) => {
     req.body = postData
 
     // 处理 blog 路由
-    const blogData = handleBlogRouter(req, res)
-    if(blogData) {
-      res.end(
-        JSON.stringify(blogData)
-      )
+    const blogResult = handleBlogRouter(req, res)
+    if(blogResult) {
+      blogResult.then(blogData => {
+        console.log('blogData: ', blogData);
+        res.end(
+          JSON.stringify(blogData)
+        )
+      })
       return
     }
 
@@ -71,5 +74,3 @@ const serverHandle = (req, res) => {
 }
 
 module.exports = serverHandle
-
-// procress.env.NODE_ENV
