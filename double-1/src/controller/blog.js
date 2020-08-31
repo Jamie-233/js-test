@@ -15,22 +15,29 @@ const getList = (author, keyword) => {
   return exec(sql)
 }
 
-const getDetaile = (id) => {
-  return [
-    {
-      id: 1,
-      title: 'Linux 设计与实现',
-      content: '...',
-      author: 'Jenkin',
-      createTime: 12233344455
-    }
-  ]
+const getDetail = (id) => {
+  const sql = `select * from blogs where id='${id}';`
+  return exec(sql).then(row => {
+    return row[0]
+  })
 }
 
 const newBlog = (blogData={}) => {
-  return {
-    id: 3
-  }
+  const title = blogData.title
+  const content = blogData.content
+  const author = blogData.author
+  const createtime = Date.now()
+
+  const sql = `
+    insert into blogs (title, content, createtime, author)
+    values('${title}', '${content}', ${createtime}, '${author}');
+  `
+  return exec(sql).then(result => {
+    console.log(result);
+    return {
+      id: result.insertId
+    }
+  })
 }
 
 const updateBlog = (id, blogData={}) => {
@@ -43,7 +50,7 @@ const delBlog = (id) => {
 
 module.exports = {
   getList,
-  getDetaile,
+  getDetail,
   newBlog,
   updateBlog,
   delBlog

@@ -4,7 +4,7 @@ let MYSQL_CONF
 
 if(env === 'dev') {
   MYSQL_CONF = {
-    host: '192.168.64.2',
+    host: 'localhost',
     user: 'root',
     password: '',
     port: '3306',

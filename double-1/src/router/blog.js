@@ -27,23 +27,25 @@ const handleBlogRouter = (req, res) => {
     return result.then(response => {
       return new SuccessModel(response)
     })
-    .catch(error => {
-      return new ErrorModel('获取失败')
-    })
   }
 
   // 获取博客详情
   if(method === 'GET' && req.path === '/api/blog/detail') {
     const id = req.query.id || ''
-    const detailList = getDetaile(id)
-    return new SuccessModel(detailList)
+    const result = getDetail(id)
+    return result.then(data => {
+      return new SuccessModel(data)
+    })
   }
 
   // 新建博客
   if(method === 'POST' && req.path === '/api/blog/new') {
     const blogData = req.body
-    const data = newBlog(req.body)
-    return new SuccessModel(data)
+    req.body.author = 'Jenkin'
+    const result = newBlog(req.body)
+    return result.then(data => {
+      return new SuccessModel(data)
+    })
   }
 
   // 更新博客
