@@ -36,3 +36,8 @@ function get(key, val) {
   })
   return promise
 }
+
+module.exports = {
+  get,
+  set
+}
